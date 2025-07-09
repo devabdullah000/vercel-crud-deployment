@@ -41,7 +41,9 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           AUTH_SECRET: ${{ secrets.AUTH_SECRET }}
-        run: npm run build
+        run: |
+          cp .vercel/.env.development.local .env.local || true
+          npm run build
 
       - name: 🚀 Deploy to Vercel
         env:
