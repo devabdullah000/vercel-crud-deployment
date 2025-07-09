@@ -24,6 +24,9 @@ jobs:
           cache: 'npm'
 
       - name: 📦 Install dependencies
+        env:
+         DATABASE_URL: ${{ secrets.DATABASE_URL }}
+         AUTH_SECRET: ${{ secrets.AUTH_SECRET }}
         run: npm ci
 
       - name: ♻️ Cache .next build folder
