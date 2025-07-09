@@ -35,6 +35,9 @@ jobs:
             nextjs-build-
 
       - name: 🛠️ Build Next.js app
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          AUTH_SECRET: ${{ secrets.AUTH_SECRET }}
         run: npm run build
 
       - name: 🚀 Deploy to Vercel
